@@ -25,6 +25,9 @@ OECMAKE_TARGET_COMPILE = "gsthailo"
 GST_HAILO_SOURCES_DIR = "${S}/hailort/libhailort/bindings/gstreamer/gst-hailo"
 GST_HAILO_INCLUDE_STAGING_DIR = "${D}${includedir}/gst-hailo"
 
+do_configure[network] = "1"
+do_compile[network] = "1"
+
 do_install() {
     # copy libgsthailo shared object to usr/lib/gstreamer-1.0 in the rootfs - so gstreamer could load it
     install -d ${D}${libdir}/gstreamer-1.0

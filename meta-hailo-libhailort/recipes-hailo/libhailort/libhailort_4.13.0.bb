@@ -14,6 +14,9 @@ inherit hailort-base
 OECMAKE_TARGET_COMPILE = "libhailort"
 HAILORT_INCLUDE_STAGING_DIR = "${D}${includedir}/hailort"
 
+do_configure[network] = "1"
+do_compile[network] = "1"
+
 do_install:append() {
   install -d ${D}${libdir}
   install -m 0755 ${LIB_SRC_DIR}/libhailort.so.${PV} ${D}${libdir}

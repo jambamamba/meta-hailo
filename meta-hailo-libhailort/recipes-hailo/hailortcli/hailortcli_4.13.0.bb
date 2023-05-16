@@ -16,6 +16,9 @@ inherit hailort-base
 RDEPENDS:${PN} += "libhailort"
 OECMAKE_TARGET_COMPILE = "hailortcli"
 
+do_configure[network] = "1"
+do_compile[network] = "1"
+
 do_install:append() {
   install -d ${D}${bindir}
   install -m 0755 ${BIN_SRC_DIR}/hailortcli ${D}${bindir}
